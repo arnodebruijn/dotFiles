@@ -1,0 +1,25 @@
+##########################
+## Git ignore:
+## .files from home dir
+## settings and such
+##########################
+
+# Ignore everything
+/*
+/*/
+
+# But not these files...
+!.bashrc
+!.gitconfig
+!.gitignore
+!.profile
+!README.md
+!.screenrc
+!.tmux.conf
+!.vimrc
+
+
+# And these directories...
+!/mac/
+!/scripts/
+!/.vim/
