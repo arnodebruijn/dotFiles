@@ -1,16 +1,21 @@
 execute pathogen#infect()
 
+set shortmess+=I	"disable welcome message
 set number		"enable line numbers
-syntax enable		"enable syntax highlighting
+
+"Solarized colors
+syntax on
+"set t_Co=256
 set background=dark
 colorscheme solarized
-set hlsearch		"highlight searches
+call togglebg#map("<F5>")
+
+"set hlsearch		"highlight searches
 set mouse=a		"enable the use of the mouse for all modes
-set cmdheight=2		"command windows height
+"set cmdheight=2	"command windows height
 
-set term=xterm		"to enable mouse scrolling via putty
+"set term=xterm		"to enable mouse scrolling via putty
 
-set clipboard=unnamed
 
 
 "-----------------------------------------------------------------------------
