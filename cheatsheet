@@ -1,0 +1,44 @@
+##################################
+##  cli                         ##
+##################################
+tmux ls       list sessions
+tmux new -s   create new session with name ...
+tmux a -t     attach to session with name ...
+
+
+
+##################################
+##  tmux                        ##
+##################################
+^a  [         enter scroll mode (q to quit)
+
+^a  i         commant prompt
+    :source-file ~/.tmux.conf                          tmux source-file ~/.tmux.conf
+    :new      create a new session
+
+^a  o         swap panes
+^a  q         show panen numbers
+^a  s         list sessions
+^a  t         big clock
+^a  x         kill pane
+^a  $         name current session
+
+
+
+##################################
+##  vim                         ##
+##################################
+
+
+
+
+##################################
+##  tmux + vim                  ##
+##################################
+^h  move to left pane
+^j  move to down pane
+^k  move to up pane
+^l  move to right pane
+^\  move to previous pane
+
+
