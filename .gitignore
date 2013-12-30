@@ -23,3 +23,9 @@
 !/mac/
 !/scripts/
 !/.vim/
+
+
+# Only include the Vundle bundle
+/.vim/bundle/
+!/.vim/bundle/vundle/
+

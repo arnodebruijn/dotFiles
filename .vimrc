@@ -1,4 +1,4 @@
-execute pathogen#infect()
+filetype off        " disabled until Vundle loads
 
 set shortmess+=I  	" disable welcome message
 set number      		" enable line numbers
@@ -7,7 +7,28 @@ set nocompatible  	" Use Vim settings, rather then Vi settings
 set cursorline      " highlight the current line
 set hlsearch	    	" highlight searches
 set mouse=a		      " enable the use of the mouse for all modes
-set cmdheight=2		  " command windows height
+set cmdheight=1 	  " command windows height
+
+" Vundle
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
+
+
+" Bundles go here
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'christoomey/vim-tmux-navigator'
+
+
+filetype plugin indent on     " enable after Vundle loads
+" Brief help
+" :BundleList          - list configured bundles
+" :BundleInstall(!)    - install (update) bundles
+" :BundleSearch(!) foo - search (or refresh cache first) for foo
+" :BundleClean(!)      - confirm (or auto-approve) removal of unused bundles
+"
+" see :h vundle for more details or wiki for FAQ
+" NOTE: comments after Bundle commands are not allowed.
 
 
 " Solarized colors
@@ -16,9 +37,6 @@ set t_Co=256
 set background=dark
 colorscheme solarized
 call togglebg#map("<F5>")
-
-
-
 
 
 " Easier split navigations
@@ -33,12 +51,7 @@ set splitbelow
 set splitright
 
 
-
-
-
-
 "set term=xterm		"to enable mouse scrolling via putty
-
 
 
 "-----------------------------------------------------------------------------
