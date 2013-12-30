@@ -18,7 +18,7 @@ Bundle 'gmarik/vundle'
 " Bundles go here
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'christoomey/vim-tmux-navigator'
-
+Bundle 'bling/vim-airline'
 
 filetype plugin indent on     " enable after Vundle loads
 " Brief help
