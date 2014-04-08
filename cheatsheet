@@ -4,7 +4,7 @@
 tmux ls       list sessions
 tmux new -s   create new session with name ...
 tmux a -t     attach to session with name ...
-
+grep -Ir --exclude="\.svn*" "pattern" *         -i ignore case  -I ignore binaries
 
 
 ##################################
@@ -48,6 +48,10 @@ ctrl+w  |     max width of the current split
 ctrl+w  =     normalize all splits
 ^p            tab completion forward
 ^n            tab completion backwards
+:%s/x/y/gc    change each x to y but ask for confirmation first
+0             jumps to the beginning of the line
+$             jumps to the end of the line
+R             insert mode while replacing current text
 
 
 ##################################

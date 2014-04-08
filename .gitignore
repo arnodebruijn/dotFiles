@@ -21,6 +21,7 @@
 
 
 # And these directories...
+!/bin/
 !/mac/
 !/scripts/
 !/.vim/
