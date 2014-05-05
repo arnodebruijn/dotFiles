@@ -8,8 +8,10 @@ set cursorline      " highlight the current line
 set hlsearch	    	" highlight searches
 set ignorecase
 set smartcase       " case insensitive search when no uppercase chars present
-set mouse=a		      " enable the use of the mouse for all modes
+set mouse+=a		      " enable the use of the mouse for all modes
 set cmdheight=1 	  " command windows height
+set statusline+=%F  " Add full file path to your existing statusline
+set laststatus=2    
 
 " Vundle
 set rtp+=~/.vim/bundle/vundle/
@@ -20,7 +22,10 @@ Bundle 'gmarik/vundle'
 " Bundles go here
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'scrooloose/nerdtree'
+"Bundle 'jistr/vim-nerdtree-tabs'
 "Bundle 'bling/vim-airline'
+
 
 filetype plugin indent on     " enable after Vundle loads
 " Brief help
@@ -100,5 +105,6 @@ nmap <silent> <F7> mzggVG<F7>`z
 imap <silent> <F7> <Esc><F7>a
 map <silent> <S-F7> <C-W>l:bw<CR>
 imap <silent> <S-F7> <Esc><S-F7>a
+
 
 
