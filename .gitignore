@@ -29,5 +29,5 @@
 
 # Only include the Vundle bundle
 /.vim/bundle/*
-!/.vim/bundle/vundle/
+!/.vim/bundle/vundle/*
 
