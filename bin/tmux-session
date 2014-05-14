@@ -49,7 +49,7 @@ restore() {
 }
 
 case "$1" in
-save | restore )
+save | restore | copy)
   $1
   ;;
 * )
