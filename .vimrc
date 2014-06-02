@@ -8,10 +8,12 @@ set cursorline      " highlight the current line
 set hlsearch	    	" highlight searches
 set ignorecase
 set smartcase       " case insensitive search when no uppercase chars present
-set mouse+=a		      " enable the use of the mouse for all modes
+set mouse+=a		    " enable the use of the mouse for all modes
 set cmdheight=1 	  " command windows height
 set statusline+=%F  " Add full file path to your existing statusline
-set laststatus=2    
+set laststatus=2
+
+
 
 " Vundle
 set rtp+=~/.vim/bundle/vundle/
@@ -23,6 +25,8 @@ Bundle 'gmarik/vundle'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'scrooloose/nerdtree'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'tpope/vim-fugitive'
 "Bundle 'jistr/vim-nerdtree-tabs'
 "Bundle 'bling/vim-airline'
 
@@ -43,8 +47,6 @@ syntax on
 set t_Co=256
 set background=dark
 colorscheme solarized
-call togglebg#map("<F5>")
-
 
 " Easier split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -60,6 +62,7 @@ set splitright
 
 "set term=xterm		"to enable mouse scrolling via putty
 
+
 " When cycling throug words keep the current word in the middle
 nnoremap n nzzzv
 nnoremap N Nzzzv
@@ -72,8 +75,15 @@ nnoremap * *zzzv
 " Softtabs, 2 spaces
 set tabstop=2
 set shiftwidth=2
+set shiftround
 set expandtab
 
+" Toggle pasting text unmodified
+set pastetoggle=<F2>
+
+
+" Display extra whitespace
+"set list listchars=tab:»·,trail:·
 
 " Centralized swap file location
 if has("win32")
@@ -82,7 +92,6 @@ elseif has("unix")
    set directory=~/.vim-swap//
    set backupdir=~/.vim-backup//
 endif
-
 
 
 
@@ -105,6 +114,45 @@ nmap <silent> <F7> mzggVG<F7>`z
 imap <silent> <F7> <Esc><F7>a
 map <silent> <S-F7> <C-W>l:bw<CR>
 imap <silent> <S-F7> <Esc><S-F7>a
+
+
+
+" NERDTree
+map <C-n> :NERDTreeToggle<CR>
+let NERDTreeWinSize = 50
+
+function! NERDTreeQuit()
+  redir => buffersoutput
+  silent buffers
+  redir END
+"                     1BufNo  2Mods.     3File           4LineNo
+  let pattern = '^\s*\(\d\+\)\(.....\) "\(.*\)"\s\+line \(\d\+\)$'
+  let windowfound = 0
+
+  for bline in split(buffersoutput, "\n")
+    let m = matchlist(bline, pattern)
+
+    if (len(m) > 0)
+      if (m[2] =~ '..a..')
+        let windowfound = 1
+      endif
+    endif
+  endfor
+
+  if (!windowfound)
+    quitall
+  endif
+endfunction
+autocmd WinEnter * call NERDTreeQuit()
+
+
+
+
+set pastetoggle=<F8> "enable paste toggle and map it to F8
+nnoremap <Left> :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up> :echoe "Use k"<CR>
+nnoremap <Down> :echoe "Use j"<CR>
 
 
 
