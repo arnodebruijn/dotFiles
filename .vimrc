@@ -16,9 +16,9 @@ set laststatus=2
 
 
 " Vundle
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
-Bundle 'gmarik/vundle'
+Bundle 'gmarik/Vundle.vim'
 
 
 " Bundles go here
