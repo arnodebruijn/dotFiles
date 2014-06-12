@@ -27,6 +27,10 @@ Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-fugitive'
+Bundle 'kien/ctrlp.vim'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-bundler'
 "Bundle 'jistr/vim-nerdtree-tabs'
 "Bundle 'bling/vim-airline'
 
@@ -155,4 +159,7 @@ nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
 
+" Switch between the last two files
+nnoremap <leader><leader> <c-^>
 
+set omnifunc=syntaxcomplete#Complete
