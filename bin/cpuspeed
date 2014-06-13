@@ -1,0 +1,61 @@
+#!/bin/bash
+#cpuspeed
+#
+# Prints the minimum, maximum and current frequency of all 4 CPU cores
+
+function convert_to_MHz {
+  let value=$1/1000
+  echo "$value"
+}
+
+printf "%-17s |" "CPU 0:"
+printf "%-17s |" "CPU 1:"
+printf "%-17s |" "CPU 2:"
+printf "%-17s |" "CPU 3:"
+printf "\n"
+echo "------------------+------------------+------------------+------------------+"
+min0=$(cat /sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_min_freq)
+min1=$(cat /sys/devices/system/cpu/cpu1/cpufreq/cpuinfo_min_freq)
+min2=$(cat /sys/devices/system/cpu/cpu2/cpufreq/cpuinfo_min_freq)
+min3=$(cat /sys/devices/system/cpu/cpu3/cpufreq/cpuinfo_min_freq)
+min0=$(convert_to_MHz $min0)
+min1=$(convert_to_MHz $min1)
+min2=$(convert_to_MHz $min2)
+min3=$(convert_to_MHz $min3)
+
+max0=$(cat /sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq)
+max1=$(cat /sys/devices/system/cpu/cpu1/cpufreq/cpuinfo_max_freq)
+max2=$(cat /sys/devices/system/cpu/cpu2/cpufreq/cpuinfo_max_freq)
+max3=$(cat /sys/devices/system/cpu/cpu3/cpufreq/cpuinfo_max_freq)
+max0=$(convert_to_MHz $max0)
+max1=$(convert_to_MHz $max1)
+max2=$(convert_to_MHz $max2)
+max3=$(convert_to_MHz $max3)
+
+cur0=$(sudo cat /sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_cur_freq)
+cur1=$(sudo cat /sys/devices/system/cpu/cpu1/cpufreq/cpuinfo_cur_freq)
+cur2=$(sudo cat /sys/devices/system/cpu/cpu2/cpufreq/cpuinfo_cur_freq)
+cur3=$(sudo cat /sys/devices/system/cpu/cpu3/cpufreq/cpuinfo_cur_freq)
+cur0=$(convert_to_MHz $cur0)
+cur1=$(convert_to_MHz $cur1)
+cur2=$(convert_to_MHz $cur2)
+cur3=$(convert_to_MHz $cur3)
+
+printf "minimum: %-8s |" "$min0 MHz"
+printf "minimum: %-8s |" "$min1 MHz"
+printf "minimum: %-8s |" "$min2 MHz"
+printf "minimum: %-8s |" "$min3 MHz"
+printf "\n"
+
+printf "maximum: %-8s |" "$max0 MHz"
+printf "maximum: %-8s |" "$max1 MHz"
+printf "maximum: %-8s |" "$max2 MHz"
+printf "maximum: %-8s |" "$max3 MHz"
+printf "\n"
+
+printf "current: %-8s |" "$cur0 MHz"
+printf "current: %-8s |" "$cur1 MHz"
+printf "current: %-8s |" "$cur2 MHz"
+printf "current: %-8s |" "$cur3 MHz"
+printf "\n"
+
