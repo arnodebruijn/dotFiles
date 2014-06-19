@@ -11,29 +11,31 @@ set smartcase       " case insensitive search when no uppercase chars present
 set mouse+=a		    " enable the use of the mouse for all modes
 set cmdheight=1 	  " command windows height
 set statusline+=%F  " Add full file path to your existing statusline
+let g:airline_powerline_fonts = 1
 set laststatus=2
-
-
 
 " Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
 Bundle 'gmarik/Vundle.vim'
 
-
 " Bundles go here
 Bundle 'altercation/vim-colors-solarized'
+"Bundle 'tomasr/molokai'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'tpope/vim-fugitive'
 Bundle 'kien/ctrlp.vim'
 Bundle 'vim-ruby/vim-ruby'
+Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-bundler'
+Bundle 'tpope/vim-surround'
+Bundle 'jiangmiao/auto-pairs'
+Bundle 'tomtom/tcomment_vim'
 "Bundle 'jistr/vim-nerdtree-tabs'
-"Bundle 'bling/vim-airline'
-
+Bundle 'bling/vim-airline'
+Bundle 'edkolev/tmuxline.vim'
 
 filetype plugin indent on     " enable after Vundle loads
 " Brief help
@@ -64,7 +66,7 @@ set splitbelow
 set splitright
 
 
-"set term=xterm		"to enable mouse scrolling via putty
+set term=xterm-256color		"to enable mouse scrolling via putty
 
 
 " When cycling throug words keep the current word in the middle
@@ -85,6 +87,8 @@ set expandtab
 " Toggle pasting text unmodified
 set pastetoggle=<F2>
 
+" Ctrl p fuzzy finding include .files
+let g:ctrlp_show_hidden = 0
 
 " Display extra whitespace
 "set list listchars=tab:»·,trail:·
@@ -93,8 +97,8 @@ set pastetoggle=<F2>
 if has("win32")
    set directory=c:\\temp
 elseif has("unix")
-   set directory=~/.vim-swap//
-   set backupdir=~/.vim-backup//
+   set directory=~/.vim/swap//
+   set backupdir=~/.vim/backup//
 endif
 
 
@@ -163,3 +167,5 @@ nnoremap <Down> :echoe "Use j"<CR>
 nnoremap <leader><leader> <c-^>
 
 set omnifunc=syntaxcomplete#Complete
+
+
