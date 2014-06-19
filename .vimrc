@@ -168,4 +168,5 @@ nnoremap <leader><leader> <c-^>
 
 set omnifunc=syntaxcomplete#Complete
 
+let g:airline#extensions#tmuxline#enabled = 0
 
