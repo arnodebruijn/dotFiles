@@ -10,7 +10,7 @@ set ignorecase
 set smartcase       " case insensitive search when no uppercase chars present
 set mouse+=a		    " enable the use of the mouse for all modes
 set cmdheight=1 	  " command windows height
-set statusline+=%F  " Add full file path to your existing statusline
+" set statusline+=%F  " Add full file path to your existing statusline
 let g:airline_powerline_fonts = 1
 set laststatus=2
 
@@ -168,5 +168,6 @@ nnoremap <leader><leader> <c-^>
 
 set omnifunc=syntaxcomplete#Complete
 
-let g:airline#extensions#tmuxline#enabled = 0
+let g:airline#extensions#tmuxline#enabled = 1
+
 

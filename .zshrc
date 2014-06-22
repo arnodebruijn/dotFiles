@@ -1,4 +1,4 @@
-# Path to your oh-my-zsh installation.
+# path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
@@ -78,13 +78,7 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/g
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 
-
-# set PATH so it includes user's private bin if it exists
- if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
- fi
-
-
+# Tries to fix the terminal nightmare
 if [ "$TERM" = "xterm" ] ; then
     if [ -z "$COLORTERM" ] ; then
         if [ -z "$XTERM_VERSION" ] ; then
@@ -116,7 +110,3 @@ if [ "$TERM" = "xterm" ] ; then
     fi
 fi
 
-
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
