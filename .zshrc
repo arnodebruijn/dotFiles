@@ -109,3 +109,5 @@ if [ "$TERM" = "xterm" ] ; then
     fi
 fi
 
+unalias rm
+
