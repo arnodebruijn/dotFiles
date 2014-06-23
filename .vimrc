@@ -13,6 +13,7 @@ set cmdheight=1 	  " command windows height
 " set statusline+=%F  " Add full file path to your existing statusline
 let g:airline_powerline_fonts = 1
 set laststatus=2
+set term=xterm-256color		"to enable mouse scrolling via putty
 
 " Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -21,7 +22,6 @@ Bundle 'gmarik/Vundle.vim'
 
 " Bundles go here
 Bundle 'altercation/vim-colors-solarized'
-"Bundle 'tomasr/molokai'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kchmck/vim-coffee-script'
@@ -33,19 +33,15 @@ Bundle 'tpope/vim-bundler'
 Bundle 'tpope/vim-surround'
 Bundle 'jiangmiao/auto-pairs'
 Bundle 'tomtom/tcomment_vim'
-"Bundle 'jistr/vim-nerdtree-tabs'
-Bundle 'bling/vim-airline'
-Bundle 'edkolev/tmuxline.vim'
+" Bundle 'jistr/vim-nerdtree-tabs'
+" Bundle 'bling/vim-airline'
+" Bundle 'edkolev/tmuxline.vim'
 
 filetype plugin indent on     " enable after Vundle loads
-" Brief help
 " :BundleList          - list configured bundles
 " :BundleInstall(!)    - install (update) bundles
 " :BundleSearch(!) foo - search (or refresh cache first) for foo
 " :BundleClean(!)      - confirm (or auto-approve) removal of unused bundles
-"
-" see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Bundle commands are not allowed.
 
 
 " Solarized colors
@@ -60,32 +56,33 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" Leet navigation
+nnoremap <Left> :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up> :echoe "Use k"<CR>
+nnoremap <Down> :echoe "Use j"<CR>
 
+" Enable paste toggle and map it to F8
+set pastetoggle=<F8>
+
+" Switch between the last two files
+nnoremap <leader><leader> <c-^>
+
+set omnifunc=syntaxcomplete#Complete
 " More natural split opening
 set splitbelow
 set splitright
-
-
-set term=xterm-256color		"to enable mouse scrolling via putty
-
 
 " When cycling throug words keep the current word in the middle
 nnoremap n nzzzv
 nnoremap N Nzzzv
 nnoremap * *zzzv
 
-
-"-----------------------------------------------------------------------------
-" Indentation options
-
 " Softtabs, 2 spaces
 set tabstop=2
 set shiftwidth=2
 set shiftround
 set expandtab
-
-" Toggle pasting text unmodified
-set pastetoggle=<F2>
 
 " Ctrl p fuzzy finding include .files
 let g:ctrlp_show_hidden = 0
@@ -100,8 +97,6 @@ elseif has("unix")
    set directory=~/.vim/swap//
    set backupdir=~/.vim/backup//
 endif
-
-
 
 " Opens a split with F7 where the current ruby code is executed
 function! Ruby_eval_vsplit() range
@@ -122,7 +117,6 @@ nmap <silent> <F7> mzggVG<F7>`z
 imap <silent> <F7> <Esc><F7>a
 map <silent> <S-F7> <C-W>l:bw<CR>
 imap <silent> <S-F7> <Esc><S-F7>a
-
 
 
 " NERDTree
@@ -155,19 +149,9 @@ autocmd WinEnter * call NERDTreeQuit()
 
 
 
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
 
-set pastetoggle=<F8> "enable paste toggle and map it to F8
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>
-
-
-" Switch between the last two files
-nnoremap <leader><leader> <c-^>
-
-set omnifunc=syntaxcomplete#Complete
-
-let g:airline#extensions#tmuxline#enabled = 1
 
 
