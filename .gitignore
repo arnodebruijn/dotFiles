@@ -28,6 +28,7 @@
 !/scripts/
 !/.vim/swap/
 !/.vim/backup/
+!/.config/powerline/
 
 
 # Only include the Vundle bundle
