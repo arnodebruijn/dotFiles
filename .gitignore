@@ -24,12 +24,11 @@
 !/bin/
 !/.fonts/
 !/.config/fontconfig/conf.d/
+!/.config/powerline/*
 !/mac/
 !/scripts/
 !/.vim/swap/
 !/.vim/backup/
-!/.config/powerline/
-
 
 # Only include the Vundle bundle
 !/.vim/bundle/Vundle.vim/
