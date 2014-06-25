@@ -25,6 +25,8 @@
 !/.fonts/
 !/.config/fontconfig/conf.d/
 !/.config/powerline/
+!/.config/powerline/*
+!/.config/powerline/**/*
 !/mac/
 !/scripts/
 !/.vim/swap/
