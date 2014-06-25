@@ -23,12 +23,12 @@
 # And these directories...
 !/bin/
 !/.fonts/
-!/.config/fontconfig/conf.d
-!.config/powerline
+!/.config/fontconfig/conf.d/
+!/.config/powerline/
 !/mac/
 !/scripts/
-!/.vim/swap
-!/.vim/backup
+!/.vim/swap/
+!/.vim/backup/
 
 # Only include the Vundle bundle
 !/.vim/bundle/Vundle.vim/
