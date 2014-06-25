@@ -16,8 +16,25 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# Generate passwords of given length
+genpasswd() {
+        local l=$1
+        [ "$l" == "" ] && l=16
+        tr -dc A-Za-z0-9 < /dev/urandom | head -c ${l} | xargs
+}
+
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
+  export PATH="$HOME/bin:$PATH"
 fi
+
+# Add rbenv to pasth
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 

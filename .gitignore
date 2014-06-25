@@ -17,15 +17,19 @@
 !.screenrc
 !.tmux.conf
 !.vimrc
+!.zshrc
 !cheatsheet
-
 
 # And these directories...
 !/bin/
+!/.fonts/
+!/.config/fontconfig/conf.d/
 !/mac/
 !/scripts/
+!/.vim/swap/
+!/.vim/backup/
 
 
 # Only include the Vundle bundle
-!/.vim/bundle/vundle/
+!/.vim/bundle/Vundle.vim/
 
