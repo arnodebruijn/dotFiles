@@ -5,8 +5,8 @@
 ##########################
 
 # Ignore everything
-/*/
 /*
+/*/
 
 # But not these files...
 !.bashrc
