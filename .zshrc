@@ -109,5 +109,18 @@ if [ "$TERM" = "xterm" ] ; then
     fi
 fi
 
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+  export PATH="$HOME/bin:$PATH"
+fi
+
+# Add rbenv to pasth
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+
+
+
 unalias rm
 
