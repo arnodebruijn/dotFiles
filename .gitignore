@@ -5,8 +5,8 @@
 ##########################
 
 # Ignore everything
+/*/
 /*
-# /*/
 
 # But not these files...
 !.bashrc
@@ -22,12 +22,6 @@
 
 # And these directories...
 !/bin/
-!/.fonts/
-!/.config/fontconfig/conf.d/
-!/.config/powerline
-!/.config/powerline/
-!/.config/powerline/*
-!/.config/powerline/**/*
 !/mac/
 !/scripts/
 !/.vim/swap/
@@ -36,3 +30,6 @@
 # Only include the Vundle bundle
 !/.vim/bundle/Vundle.vim/
 
+# Unignore these by hand:
+# git add -f .config/.gitignore
+# git add -f .vim/.gitignore
