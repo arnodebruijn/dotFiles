@@ -4,32 +4,3 @@
 ## settings and such
 ##########################
 
-# Ignore everything
-/*
-/*/
-
-# But not these files...
-!.bashrc
-!.gitconfig
-!.gitignore
-!.profile
-!README.md
-!.screenrc
-!.tmux.conf
-!.vimrc
-!.zshrc
-!cheatsheet
-
-# And these directories...
-!/bin/
-!/mac/
-!/scripts/
-!/.vim/swap/
-!/.vim/backup/
-
-# Only include the Vundle bundle
-!/.vim/bundle/Vundle.vim/
-
-# Unignore these by hand:
-# git add -f .config/.gitignore
-# git add -f .vim/.gitignore

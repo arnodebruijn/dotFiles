@@ -5,5 +5,3 @@
 	ui = true
 [push]
 	default = matching
-[core]
-	excludesfile = /home/arno/.gitignore

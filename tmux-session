@@ -1,0 +1,14 @@
+demo	model	/var/www/demo/app/models
+demo	view	/var/www/demo/app/views
+demo	controller	/var/www/demo/app/controllers
+demo	database	/var/www/demo/db
+demo	config	/var/www/demo/config
+demo	bash	/var/www/demo
+demo	bash	/var/www/demo
+ruby	model	/var/www/local/app/models
+ruby	view	/var/www/local/app/views
+ruby	controller	/var/www/local/app/controllers
+ruby	database	/var/www/local/db
+ruby	config	/var/www/local/config
+ruby	bash	/var/www/local
+ruby	bash	/var/www/local
