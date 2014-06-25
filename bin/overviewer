@@ -1,3 +1,0 @@
-#!/bin/bash
-overviewer.py --config=/opt/msm/servers/slagroomvla/overviewerConfig
-

@@ -4,7 +4,7 @@
 tmux ls       list sessions
 tmux new -s   create new session with name ...
 tmux a -t     attach to session with name ...
-grep -Ir --exclude="\.svn*" "pattern" *         -i ignore case  -I ignore binaries
+grep -Iir --exclude="\.svn*" "pattern" *         -i ignore case  -I ignore binaries
 
 
 ##################################
