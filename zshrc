@@ -120,7 +120,8 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 
-
+# Add powerline to path
+export PATH="$HOME/.local/bin:$PATH"
 
 unalias rm
 
