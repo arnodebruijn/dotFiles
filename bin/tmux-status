@@ -1,0 +1,14 @@
+#!/bin/sh
+
+project=$(basename `pwd`)
+
+tmux new-session -d -s $project
+# tmux rename-window 'status'
+# tmux select-window -t $project:0
+tmux split-window -v 'exec rails console'
+tmux split-window -v 'exec rails dbconsole'
+tmux split-window -v 'exec tail -F ./log/development.log'
+tmux select-layout even-vertical
+
+tmux -2 attach-session -t $project
+

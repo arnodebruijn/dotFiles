@@ -122,6 +122,7 @@ imap <silent> <S-F7> <Esc><S-F7>a
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeWinSize = 50
+let g:NERDTreeWinPos = "right"
 
 function! NERDTreeQuit()
   redir => buffersoutput
@@ -152,6 +153,4 @@ autocmd WinEnter * call NERDTreeQuit()
 python from powerline.vim import setup as powerline_setup
 python powerline_setup()
 python del powerline_setup
-
-
 
