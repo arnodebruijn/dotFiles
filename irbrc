@@ -3,7 +3,7 @@ require 'irb/completion'
 require 'rubygems'
 
 IRB.conf[:PROMPT_MODE] = :SIMPLE
-IRB.conf[:AUTO_INDENT] = true
+IRB.conf[:AUTO_INDENT] = false
 
 class Object
   # list methods which aren't in superclass

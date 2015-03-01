@@ -5,12 +5,11 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-#ZSH_THEME="flazz"
-#ZSH_THEME="gallois"
-#ZSH_THEME="kolo"
+# ZSH_THEME="kolo"
+# ZSH_THEME="alanpeabody"
+# ZSH_THEME="gallois"
 ZSH_THEME="pygmalion"
-#ZSH_THEME="alanpeabody"
-
+#
 # Example aliases
 alias vimrc="vim ~/.vimrc"
 
@@ -125,3 +124,6 @@ export PATH="$HOME/.local/bin:$PATH"
 
 unalias rm
 
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"

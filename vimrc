@@ -1,5 +1,7 @@
 filetype off        " disabled until Vundle loads
 
+autocmd BufEnter * lcd %:p:h      "set the working directory to that of the current file
+
 set shortmess+=I  	" disable welcome message
 set number      		" enable line numbers
 set backspace=2   	" Backspace deletes like most programs in insert mode
@@ -14,6 +16,9 @@ set cmdheight=1 	  " command windows height
 let g:airline_powerline_fonts = 1
 set laststatus=2
 set term=xterm-256color		"to enable mouse scrolling via putty
+
+" Enable CTags
+set tags+=gems.tags
 
 " Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -32,7 +37,22 @@ Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-bundler'
 Bundle 'tpope/vim-surround'
 Bundle 'jiangmiao/auto-pairs'
-Bundle 'tomtom/tcomment_vim'
+
+" Bundle 'tomtom/tcomment_vim'
+Bundle 'tpope/vim-commentary'
+
+Bundle 'wannesm/wmgraphviz.vim'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-haml'
+Bundle 'elzr/vim-json'
+Bundle 'josemarluedke/vim-rspec'
+Bundle 'godlygeek/tabular'
+
+" Ruby block support (every block delimited by 'end')
+Bundle 'tmhedberg/matchit'
+Bundle 'kana/vim-textobj-user'
+Bundle 'nelstrom/vim-textobj-rubyblock'
+
 " Bundle 'jistr/vim-nerdtree-tabs'
 " Bundle 'bling/vim-airline'
 " Bundle 'edkolev/tmuxline.vim'
@@ -118,11 +138,12 @@ imap <silent> <F7> <Esc><F7>a
 map <silent> <S-F7> <C-W>l:bw<CR>
 imap <silent> <S-F7> <Esc><S-F7>a
 
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
 
 " NERDTree
-map <C-n> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeToggle <CR>
 let NERDTreeWinSize = 50
-let g:NERDTreeWinPos = "right"
 
 function! NERDTreeQuit()
   redir => buffersoutput
@@ -149,8 +170,30 @@ endfunction
 autocmd WinEnter * call NERDTreeQuit()
 
 
-
+" Powerline sripts
 python from powerline.vim import setup as powerline_setup
 python powerline_setup()
 python del powerline_setup
+
+" Provide :Rfactory to open factory of current file
+let g:rails_projections = {
+  \  "spec/factories/*.rb": {
+  \    "command": "factory",
+  \    "affinity": "collection",
+  \    "alternate": "app/models/%i.rb",
+  \    "related": "db/schema.rb#%s",
+  \    "spec": "spec/models/%i_spec.rb",
+  \    "template": "FactoryGirl.define do\n  factory :%i do\n  end\nend",
+  \    "keywords": "factory sequence"}}
+
+
+" Highlight current file in NERDTree
+map <leader>r :NERDTreeFind<cr>
+
+
+" Enable matchit plugin
+runtime macros/matchit.vim
+if has("autocmd")
+  filetype indent plugin on
+endif
 

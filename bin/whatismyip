@@ -1,0 +1,11 @@
+#!/bin/bash
+#
+####################################################
+#                                                  #
+# Prints your current IP address                   # 
+#                                                  #
+####################################################
+#
+CURRENT_IP=$(curl -s checkip.dyndns.com | grep -Eo "[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+")
+echo $CURRENT_IP
+
