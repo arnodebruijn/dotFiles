@@ -1,3 +1,6 @@
+# Fix "prompt_setup_pygmalion:12: command not found: add-zsh-hook" error
+autoload -U add-zsh-hook
+
 # path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
