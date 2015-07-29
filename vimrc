@@ -1,6 +1,7 @@
 filetype off        " disabled until Vundle loads
 
-autocmd BufEnter * lcd %:p:h      "set the working directory to that of the current file
+" Seems to cause problems with Gdiff
+" autocmd BufEnter * lcd %:p:h      "set the working directory to that of the current file
 
 set shortmess+=I  	" disable welcome message
 set number      		" enable line numbers
@@ -10,12 +11,14 @@ set cursorline      " highlight the current line
 set hlsearch	    	" highlight searches
 set ignorecase
 set smartcase       " case insensitive search when no uppercase chars present
-set mouse+=a		    " enable the use of the mouse for all modes
 set cmdheight=1 	  " command windows height
-" set statusline+=%F  " Add full file path to your existing statusline
-let g:airline_powerline_fonts = 1
-set laststatus=2
+set statusline+=%F  " Add full file path to your existing statusline
+set mouse+=a        " enable the use of the mouse for all modes
 set term=xterm-256color		"to enable mouse scrolling via putty
+set laststatus=2
+set diffopt+=vertical " Open splits vertical
+
+
 
 " Enable CTags
 set tags+=gems.tags
@@ -34,9 +37,10 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rails'
+Bundle 'slim-template/vim-slim'
 Bundle 'tpope/vim-bundler'
 Bundle 'tpope/vim-surround'
-Bundle 'jiangmiao/auto-pairs'
+Bundle 'ngmy/vim-rubocop'
 
 " Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-commentary'
@@ -77,10 +81,10 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " Leet navigation
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>
+" nnoremap <Left> :echoe "Use h"<CR>
+" nnoremap <Right> :echoe "Use l"<CR>
+" nnoremap <Up> :echoe "Use k"<CR>
+" nnoremap <Down> :echoe "Use j"<CR>
 
 " Enable paste toggle and map it to F8
 set pastetoggle=<F8>
@@ -113,7 +117,7 @@ let g:ctrlp_show_hidden = 0
 " Centralized swap file location
 if has("win32")
    set directory=c:\\temp
-elseif has("unix")
+else
    set directory=~/.vim/swap//
    set backupdir=~/.vim/backup//
 endif
@@ -169,6 +173,13 @@ function! NERDTreeQuit()
 endfunction
 autocmd WinEnter * call NERDTreeQuit()
 
+" I18n vim surround extraction
+" i key
+autocmd FileType eruby let b:surround_105 = "<%= t('\1key: \1', %{\r}) %>"
+" o key
+autocmd FileType eruby let b:surround_111 = "t('\1key: \1', \r)"
+autocmd FileType ruby let b:surround_111 = "t('\1key: \1', \r)"
+
 
 " Powerline sripts
 python from powerline.vim import setup as powerline_setup
@@ -196,4 +207,7 @@ runtime macros/matchit.vim
 if has("autocmd")
   filetype indent plugin on
 endif
+
+" Yank and paste from the Mac clipboard
+set clipboard=unnamed
 

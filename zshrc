@@ -53,7 +53,7 @@ HIST_STAMPS="dd.mm.yyyy"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(bundler cap command-not-found common-aliases git ruby ssh-agent tmuxinator web-search)
+plugins=(bundler cap command-not-found common-aliases git ruby ssh-agent web-search)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -63,7 +63,8 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -122,11 +123,17 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 
+# export PATH="$HOME/.local/bin:$PATH"
+export PATH="/usr/local/bin:$PATH"
 # Add powerline to path
-export PATH="$HOME/.local/bin:$PATH"
+# . /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
 
 unalias rm
 
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+# Export docker environment variables
+eval `boot2docker shellinit 2>/dev/null`
+
