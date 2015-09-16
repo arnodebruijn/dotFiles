@@ -12,7 +12,7 @@ export ZSH=$HOME/.oh-my-zsh
 # ZSH_THEME="alanpeabody"
 # ZSH_THEME="gallois"
 ZSH_THEME="pygmalion"
-#
+
 # Example aliases
 alias vimrc="vim ~/.vimrc"
 
@@ -126,7 +126,7 @@ export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 # export PATH="$HOME/.local/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 # Add powerline to path
-# . /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+. /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
 
 unalias rm
 
