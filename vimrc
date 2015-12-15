@@ -3,6 +3,12 @@ filetype off        " disabled until Vundle loads
 " Seems to cause problems with Gdiff
 " autocmd BufEnter * lcd %:p:h      "set the working directory to that of the current file
 
+set regexpengine=1  " Use the new regex engine for improved performance
+set nocursorcolumn      " Don't paint cursor column
+set lazyredraw          " Wait to redraw
+set scrolljump=8        " Scroll 8 lines at a time at bottom/top
+let html_no_rendering=2 " Don't render italic, bold, links in HTML
+
 set shortmess+=I  	" disable welcome message
 set number      		" enable line numbers
 set backspace=2   	" Backspace deletes like most programs in insert mode
@@ -12,12 +18,11 @@ set hlsearch	    	" highlight searches
 set ignorecase
 set smartcase       " case insensitive search when no uppercase chars present
 set cmdheight=1 	  " command windows height
-set statusline+=%F  " Add full file path to your existing statusline
+" set statusline+=%F  " Add full file path to your existing statusline
 set mouse+=a        " enable the use of the mouse for all modes
 set term=xterm-256color		"to enable mouse scrolling via putty
 set laststatus=2
 set diffopt+=vertical " Open splits vertical
-
 
 
 " Enable CTags
@@ -46,11 +51,11 @@ Bundle 'ngmy/vim-rubocop'
 Bundle 'tpope/vim-commentary'
 
 Bundle 'wannesm/wmgraphviz.vim'
-Bundle 'tpope/vim-endwise'
+" Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-haml'
 Bundle 'elzr/vim-json'
-Bundle 'josemarluedke/vim-rspec'
-Bundle 'godlygeek/tabular'
+" Bundle 'josemarluedke/vim-rspec'
+" Bundle 'godlygeek/tabular'
 
 " Ruby block support (every block delimited by 'end')
 Bundle 'tmhedberg/matchit'
@@ -79,12 +84,6 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-
-" Leet navigation
-" nnoremap <Left> :echoe "Use h"<CR>
-" nnoremap <Right> :echoe "Use l"<CR>
-" nnoremap <Up> :echoe "Use k"<CR>
-" nnoremap <Down> :echoe "Use j"<CR>
 
 " Enable paste toggle and map it to F8
 set pastetoggle=<F8>
@@ -173,13 +172,6 @@ function! NERDTreeQuit()
 endfunction
 autocmd WinEnter * call NERDTreeQuit()
 
-" I18n vim surround extraction
-" i key
-autocmd FileType eruby let b:surround_105 = "<%= t('\1key: \1', %{\r}) %>"
-" o key
-autocmd FileType eruby let b:surround_111 = "t('\1key: \1', \r)"
-autocmd FileType ruby let b:surround_111 = "t('\1key: \1', \r)"
-
 
 " Powerline sripts
 python from powerline.vim import setup as powerline_setup
@@ -210,4 +202,3 @@ endif
 
 " Yank and paste from the Mac clipboard
 set clipboard=unnamed
-

@@ -1,5 +1,5 @@
 # Fix "prompt_setup_pygmalion:12: command not found: add-zsh-hook" error
-autoload -U add-zsh-hook
+# autoload -U add-zsh-hook
 
 # path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -11,7 +11,14 @@ export ZSH=$HOME/.oh-my-zsh
 # ZSH_THEME="kolo"
 # ZSH_THEME="alanpeabody"
 # ZSH_THEME="gallois"
-ZSH_THEME="pygmalion"
+# ZSH_THEME="pygmalion"
+# ZSH_THEME="robbyrussell"
+# ZSH_THEME="muse"
+# ZSH_THEME="agnoster"
+# ZSH_THEME="powerlevel9k"
+# ZSH_THEME="lambda-mod"
+# ZSH_THEME="gitster"
+# ZSH_THEME="zhann"
 
 # Example aliases
 alias vimrc="vim ~/.vimrc"
@@ -53,87 +60,38 @@ HIST_STAMPS="dd.mm.yyyy"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(bundler cap command-not-found common-aliases git ruby ssh-agent web-search)
-
-source $ZSH/oh-my-zsh.sh
+# plugins=(bundler cap command-not-found common-aliases git ruby ssh-agent web-search)
+plugins=(bundler git docker)
 
 # User configuration
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-# export MANPATH="/usr/local/man:$MANPATH"
+# export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+export MANPATH="/usr/local/man:$MANPATH"
+
+source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-
-# Tries to fix the terminal nightmare
-if [ "$TERM" = "xterm" ] ; then
-    if [ -z "$COLORTERM" ] ; then
-        if [ -z "$XTERM_VERSION" ] ; then
-            echo "Warning: Terminal wrongly calling itself 'xterm'."
-        else
-            case "$XTERM_VERSION" in
-            "XTerm(256)") TERM="xterm-256color" ;;
-            "XTerm(88)") TERM="xterm-88color" ;;
-            "XTerm") ;;
-            *)
-                echo "Warning: Unrecognized XTERM_VERSION: $XTERM_VERSION"
-                ;;
-            esac
-        fi
-    else
-        case "$COLORTERM" in
-            gnome-terminal)
-                # Those crafty Gnome folks require you to check COLORTERM,
-                # but don't allow you to just *favor* the setting over TERM.
-                # Instead you need to compare it and perform some guesses
-                # based upon the value. This is, perhaps, too simplistic.
-                #TERM="gnome-256color"
-                TERM="xterm-256color"
-                ;;
-            *)
-                echo "Warning: Unrecognized COLORTERM: $COLORTERM"
-                ;;
-        esac
-    fi
-fi
-
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.bin" ] ; then
   export PATH="$HOME/.bin:$PATH"
 fi
 
-# Add rbenv to pasth
+# Add rbenv to path
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 
-# export PATH="$HOME/.local/bin:$PATH"
-export PATH="/usr/local/bin:$PATH"
 # Add powerline to path
 . /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
 
-unalias rm
 
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
 # Export docker environment variables
-eval `boot2docker shellinit 2>/dev/null`
-
+# eval "$(docker-machine env default)" 
