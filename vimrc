@@ -54,7 +54,6 @@ Bundle 'wannesm/wmgraphviz.vim'
 " Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-haml'
 Bundle 'elzr/vim-json'
-" Bundle 'josemarluedke/vim-rspec'
 " Bundle 'godlygeek/tabular'
 
 " Ruby block support (every block delimited by 'end')
