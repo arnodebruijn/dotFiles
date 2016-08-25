@@ -22,45 +22,32 @@ set diffopt+=vertical " Open splits vertical
 " Enable CTags
 set tags+=gems.tags
 
-" Vundle
+
+" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#rc()
-Bundle 'gmarik/Vundle.vim'
+call vundle#begin()
 
 " Bundles go here
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'scrooloose/nerdtree'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'kien/ctrlp.vim'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-rails'
-Bundle 'slim-template/vim-slim'
-" Bundle 'tpope/vim-bundler'    " Slow for some reason
-Bundle 'tpope/vim-surround'
-Bundle 'ngmy/vim-rubocop'
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'scrooloose/nerdtree'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-bundler'    " Slow for some reason
+Plugin 'tpope/vim-surround'
+Plugin 'ngmy/vim-rubocop'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-haml'
+Plugin 'elzr/vim-json'
+Plugin 'josemarluedke/vim-rspec'
+Plugin 'godlygeek/tabular'
 
-Bundle 'tpope/vim-commentary'
-
-Bundle 'wannesm/wmgraphviz.vim'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-haml'
-Bundle 'elzr/vim-json'
-Bundle 'josemarluedke/vim-rspec'
-Bundle 'godlygeek/tabular'
-
-" Ruby block support (every block delimited by 'end')
-Bundle 'tmhedberg/matchit'
-Bundle 'kana/vim-textobj-user'
-Bundle 'nelstrom/vim-textobj-rubyblock'
-
-filetype plugin indent on     " enable after Vundle loads
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install (update) bundles
-" :BundleSearch(!) foo - search (or refresh cache first) for foo
-" :BundleClean(!)      - confirm (or auto-approve) removal of unused bundles
-
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
 
 " Solarized colors
 syntax on
@@ -101,9 +88,6 @@ set tabstop=2
 set shiftwidth=2
 set shiftround
 set expandtab
-
-" Ctrl p fuzzy finding include .files
-let g:ctrlp_show_hidden = 0
 
 " Display extra whitespace
 "set list listchars=tab:»·,trail:·
@@ -163,16 +147,6 @@ function! NERDTreeQuit()
 endfunction
 autocmd WinEnter * call NERDTreeQuit()
 
-" I18n vim surround extraction
-" i key
-autocmd FileType eruby let b:surround_105 = "<%= t('\1key: \1', %{\r}) %>"
-" o key
-autocmd FileType eruby let b:surround_111 = "t('\1key: \1', \r)"
-autocmd FileType ruby let b:surround_111 = "t('\1key: \1', \r)"
-
-
-" Powerline scripts
-source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
 
 
 " Provide :Rfactory to open factory of current file
@@ -191,13 +165,3 @@ let g:rails_projections = {
 map <leader>r :NERDTreeFind<cr>
 " Show hidden files in NERDTree
 let NERDTreeShowHidden=1
-
-" Enable matchit plugin
-runtime macros/matchit.vim
-if has("autocmd")
-  filetype indent plugin on
-endif
-
-" Yank and paste from the Mac clipboard
-set clipboard=unnamed
-
