@@ -1,0 +1,6 @@
+tmux
+tmux-colors-solarized
+tmux-powerline
+tmux-tokyo-night
+tpm
+vim-tmux-navigator
